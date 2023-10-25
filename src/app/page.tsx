@@ -1,5 +1,8 @@
 import Image from "next/image";
+import { SectionHero } from "./components/section-hero";
 
 export default function Home() {
-  return <h1>Instasany</h1>;
+  return (
+    <SectionHero />
+  )
 }

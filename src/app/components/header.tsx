@@ -3,27 +3,48 @@ import Link from "next/link";
 
 import LogoImg from "/public/logo.svg";
 import SearchIcon from "/public/icon-search.svg";
+import IconUser from "/public/icon-user.svg";
+import { GridContainer } from "./grid";
+
+const arrayMenu = [
+  "Início",
+  "Benefícios",
+  "Para quem é o curso?",
+  "Preços promocionais",
+  "Sobre nós",
+];
 
 export function Header() {
+  const activedStyle = "bg-green-actived text-opacity-100 rounded-full";
   return (
-    <header>
-      <div>
+    <header className="relative w-full h-24 bg-green-primary flex items-center">
+      <GridContainer className="flex items-center justify-between">
         <Image src={LogoImg} alt="Logo " />
-        <div>
-          <nav>
-            <Link href="#">Início</Link>
-            <Link href="#">Benefícios</Link>
-            <Link href="#">Para quem é o curso?</Link>
-            <Link href="#">Preços promocionais</Link>
-            <Link href="#">Sobre nós</Link>
+        <div className="flex items-center gap-20">
+          <nav className="flex gap-2">
+            {arrayMenu.map((item, index) => (
+              <Link
+                key={index}
+                href="#"
+                className={`px-3 py-1 text-white text-opacity-40 hover:text-opacity-100 transition-all ${
+                  index === 0 ? activedStyle : ""
+                }`}
+              >
+                {item}
+              </Link>
+            ))}
           </nav>
-          <div>
+          <div className="flex items-center gap-6">
             <button>
-              <Image src={SearchIcon} alt="Icon search" />
+              <Image src={SearchIcon} alt="Ícone de pesquisa" />
+            </button>
+            <button className="flex items-center gap-2">
+              <Image src={IconUser} alt="Ícone de usuário" />
+              <p className="text-white font-medium">Fazer login</p>
             </button>
           </div>
         </div>
-      </div>
+      </GridContainer>
     </header>
   );
 }
