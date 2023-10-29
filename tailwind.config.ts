@@ -13,13 +13,20 @@ const config: Config = {
         'green-actived': '#5d8a83',
         'green-border': '#2a4b46',
         'green-btn': '#ccec60',
+        'green-title-card': '#719d96',
       },
       maxWidth: {
         'grid': '77.5rem',
-        'text-hero': '66rem'
+        'text-hero': '66rem',
+        'area-mockups': '59.8125rem',
+        'area-cards': '82.5rem'
       },
       height: {
-        'section-hero': '54.625rem'
+        'section-hero': '54.625rem',
+        'area-cards': '35.125rem'
+      },
+      backgroundImage: {
+        'hero': "url('/bg-hero.svg')",
       }
     },
   },
