@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 import Mockup from "/public/mockup-main.png";
 
@@ -18,6 +19,36 @@ gsap.registerPlugin(ScrollTrigger);
 export function SectionCards() {
   const mockupRef = useRef(null);
   const titleRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  const card01Ref = useRef(null);
+  const card02Ref = useRef(null);
+  const card03Ref = useRef(null);
+  const card04Ref = useRef(null);
+  const card05Ref = useRef(null);
+  const card06Ref = useRef(null);
+
+  const section = sectionRef.current;
+
+  function animateCards(images: null[], position: number) {
+    gsap.fromTo(
+      images,
+      {
+        opacity: 0,
+        x: position,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: section,
+          start: "center center",
+        },
+      }
+    );
+  }
 
   useEffect(() => {
     const mockupPhone = mockupRef.current;
@@ -46,11 +77,29 @@ export function SectionCards() {
       {
         opacity: 1,
         y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: section,
+          start: "65% center",
+        },
       }
     );
+
+    const img01 = card01Ref.current;
+    const img02 = card02Ref.current;
+    const img03 = card03Ref.current;
+    const img04 = card04Ref.current;
+    const img05 = card05Ref.current;
+    const img06 = card06Ref.current;
+
+    const leftImages = [img01, img02, img03];
+    const rightImages = [img04, img05, img06];
+
+    animateCards(leftImages, 50);
+    animateCards(rightImages, -50);
   }, []);
   return (
-    <section className="w-full pb-20">
+    <section className="w-full pb-20" ref={sectionRef}>
       <Image
         src={Mockup}
         alt="Imagem de um celular com uma mulher aparecendo na tela"
@@ -59,33 +108,47 @@ export function SectionCards() {
       />
 
       <h2
-        className="text-center text-7xl font-semibold text-black mb-56 opacity-0"
+        className="flex flex-row justify-center text-center text-7xl font-semibold text-black mb-56 opacity-0"
         ref={titleRef}
       >
-        Faça <spam className="flex flex-row text-green-title-card">você</spam>
+        Faça&nbsp;<spam className="text-green-title-card">você&nbsp;</spam>
         mesmo de casa
       </h2>
       <div className="relative w-full max-w-area-cards mx-auto h-area-cards">
-        <Image src={Card01} className="absolute top-8 letf-44" alt="Card 01" />
+        <Image
+          src={Card01}
+          ref={card01Ref}
+          className="absolute top-8 letf-44 opacity-0"
+          alt="Card 01"
+        />
         <Image
           src={Card02}
-          className="absolute bottom-32 letf-0"
+          ref={card02Ref}
+          className="absolute bottom-32 letf-0 opacity-0"
           alt="Card 02"
         />
         <Image
           src={Card03}
-          className="absolute bottom-0 left-80"
+          ref={card03Ref}
+          className="absolute bottom-0 left-80 opacity-0"
           alt="Card 03"
         />
-        <Image src={Card04} className="absolute top-0 right-32" alt="Card 04" />
+        <Image
+          src={Card04}
+          ref={card04Ref}
+          className="absolute top-0 right-32 opacity-0"
+          alt="Card 04"
+        />
         <Image
           src={Card05}
-          className="absolute right-0 bottom-28"
+          ref={card05Ref}
+          className="absolute right-0 bottom-28 opacity-0"
           alt="Card 05"
         />
         <Image
           src={Card06}
-          className="absolute bottom-0 right-80"
+          ref={card06Ref}
+          className="absolute bottom-0 right-80 opacity-0"
           alt="Card 06"
         />
       </div>
