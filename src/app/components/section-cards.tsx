@@ -1,4 +1,9 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+
 import Mockup from "/public/mockup-main.png";
 
 import Card01 from "/public/image-01.png";
@@ -8,18 +13,57 @@ import Card04 from "/public/image-04.png";
 import Card05 from "/public/image-05.png";
 import Card06 from "/public/image-06.png";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export function SectionCards() {
+  const mockupRef = useRef(null);
+  const titleRef = useRef(null);
+
+  useEffect(() => {
+    const mockupPhone = mockupRef.current;
+    const title = titleRef.current;
+
+    gsap.fromTo(
+      mockupPhone,
+      {
+        opacity: 0,
+        scale: 0.5,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power5.out",
+      }
+    );
+
+    gsap.fromTo(
+      title,
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+      }
+    );
+  }, []);
   return (
     <section className="w-full pb-20">
       <Image
         src={Mockup}
         alt="Imagem de um celular com uma mulher aparecendo na tela"
-        className="sticky z-10 top-56 mx-auto -mt-[32rem] mb-16"
+        className="sticky z-10 top-56 mx-auto -mt-[32rem] mb-16 opacity-0"
+        ref={mockupRef}
       />
 
-      <h2 className="text-center text-7xl font-semibold text-black mb-56">
-        Faça <p className="flex flex-row text-green-title-card">você</p> mesmo
-        de casa
+      <h2
+        className="text-center text-7xl font-semibold text-black mb-56 opacity-0"
+        ref={titleRef}
+      >
+        Faça <spam className="flex flex-row text-green-title-card">você</spam>
+        mesmo de casa
       </h2>
       <div className="relative w-full max-w-area-cards mx-auto h-area-cards">
         <Image src={Card01} className="absolute top-8 letf-44" alt="Card 01" />

@@ -15,14 +15,42 @@ export function SectionHero() {
 
   useEffect(() => {
     const textHero = textHeroRef.current;
+    const mLeft = mockupLeftRef.current;
+    const mRight = mockupRightRef.current;
 
-    gsap.FromTo(
+    gsap.fromTo(
       textHero,
       {
         opacity: 0,
+        y: 20,
       },
       {
         opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power4.out",
+      }
+    );
+
+    gsap.fromTo(
+      mLeft,
+      {
+        rotate: 0,
+      },
+      {
+        rotate: -10,
+        duration: 1,
+      }
+    );
+
+    gsap.fromTo(
+      mRight,
+      {
+        rotate: 0,
+      },
+      {
+        rotate: 10,
+        duration: 1,
       }
     );
   }, []);
@@ -54,13 +82,13 @@ export function SectionHero() {
           <Image
             src={IconMockup}
             alt="Imagem do contorno de um celular"
-            className="relative -rotate-12 top-[1.1rem] left-[3.3rem]"
+            className="relative top-[1.1rem] left-[3.3rem]"
             ref={mockupLeftRef}
           />
           <Image
             src={IconMockup}
             alt="Imagem do contorno de um celular"
-            className="relative rotate-12 top-[1.1rem] right-[3.3rem]"
+            className="relative top-[1.1rem] right-[3.3rem]"
             ref={mockupRightRef}
           />
         </div>
