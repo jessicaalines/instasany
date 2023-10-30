@@ -111,7 +111,7 @@ export function SectionCards() {
         className="flex flex-row justify-center text-center text-7xl font-semibold text-black mb-56 opacity-0"
         ref={titleRef}
       >
-        Faça&nbsp;<spam className="text-green-title-card">você&nbsp;</spam>
+        Faça&nbsp;<span className="text-green-title-card">você&nbsp;</span>
         mesmo de casa
       </h2>
       <div className="relative w-full max-w-area-cards mx-auto h-area-cards">
