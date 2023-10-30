@@ -34,7 +34,7 @@ Este projeto é resultado de uma aula disponibilizada via YouTube no canal CodeB
 
 # 📁 Acesso ao projeto
 
-O projeto está disponibilizado no site da Vercel, através do seguinte link:
+O projeto está disponibilizado no site da Vercel, através do seguinte link: https://instasany-ixu2.vercel.app/
 
 # 🛠️ Abrir e rodar o projeto
 
