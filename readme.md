@@ -29,8 +29,8 @@ Este projeto é resultado de uma aula disponibilizada via YouTube no canal CodeB
 - `Funcionalidade 1`: Renderizar os conteúdos relativos ao conteúdo da página;
 - `Funcionalidade 2`: Exibir as animações realizadas;
 
-![Visualização inicial da página](instasany01.png)
-![Visualização final da página](instasany02.png)
+![Visualização inicial da página](public/instasany01.png)
+![Visualização final da página](public/instasany02.png)
 
 # 📁 Acesso ao projeto
 
@@ -67,4 +67,4 @@ Instasany is MIT licensed.
 
 # Agradecimentos
 
-Ao canal CodeBoost por compartilhar e impulsionar a comunidade Frontend.
+Ao canal CodeBoost por impulsionar a comunidade Frontend.
